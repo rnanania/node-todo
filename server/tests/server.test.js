@@ -239,3 +239,34 @@ describe('POST /users', () => {
         .end(done);
     });
 });
+
+describe('POST /users/login', () => {
+    it('should login user', (done) => {
+        request(app)
+        .post('/users/login')
+        .send({email: users[1].email, password: users[1].password})
+        .expect(200)
+        .expect((res) => {
+            expect(res.headers['x-auth']).toBeDefined();
+        })
+        .end((err, res) => {
+            if(err){
+                return done(err);
+            }
+
+            User.findById(users[1]._id).then((user) => {
+                expect(user.tokens[0].access).toBe('auth');
+                expect(user.tokens[0].token).toBe(res.headers['x-auth']);
+                done();
+            }).catch(done);
+        });
+    });
+ 
+    it('should reject invalid user', (done) => {
+        request(app)
+        .post('/users/login')
+        .send({email: users[1].email, password: users[1].password + 'extra'})
+        .expect(400)
+        .end(done);
+    });
+});
