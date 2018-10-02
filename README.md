@@ -33,6 +33,7 @@ Todo application using NodeJS. Includes features like
 
 * Install and run mongodb instance locally. 
 * Install Studio-3D to view MongoDb content.
+* Install POSTMAN to test APIs locally.
 
 ### Installing
 
