@@ -1,6 +1,20 @@
-Create sample config.json file under 'server/config/' folder to run this app locally.
+# Todo App using NodeJS
 
-Sample config.json file
+Todo application using NodeJS. Includes features like
+* Login
+* Logout
+* Authentication using JWT Token
+* Password hashing using BCryptJs
+* Todo APIs protected with authentication
+* Test coverage using Mocha
+
+## Getting Started
+
+* Clone this repository
+* Create a sample configuration file config.json under 'server/config' folder.
+* Here is the sample configuration file
+
+```
 {
     "test" : {
         "PORT" : 3000,
@@ -12,4 +26,38 @@ Sample config.json file
         "MONGODB_URI": "mongodb://localhost:27017/TodoApp",
         "JWT_SECRET": "mysecretjwt"
     }
-} 
+}
+```
+
+### Prerequisites
+
+* Install and run mongodb instance locally. 
+* Install Studio-3D to view MongoDb content.
+
+### Installing
+
+```
+npm install
+node server/server.js
+```
+
+## Running the tests
+
+```
+npm run test
+```
+
+## Authors
+
+* **Rohit Nanania** - [GitHub](https://github.com/rnanania)
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Hat tip to anyone whose code was used
+* Inspiration
+* etc
