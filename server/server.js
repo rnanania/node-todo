@@ -71,14 +71,14 @@ app.delete('/todos/:id', authenticate, (req, resp) => {
 
 app.patch('/todos/:id', authenticate, (req, res) => {
     let id = req.params.id;
-    
+
     if(!ObjectID.isValid(id)){
         return resp.status(404).send();
     }
 
     let body = _.pick(req.body, ['text', 'completed']);
 
-    // CompletedAt calculation based on completed update    
+    // CompletedAt calculation based on completed update
     if (_.isBoolean(body.completed) && body.completed) {
         body.completedAt = new Date().getTime();
     } else {
@@ -98,6 +98,7 @@ app.patch('/todos/:id', authenticate, (req, res) => {
 });
 
 app.post('/users', (req, res) => {
+    console.log('req: ', req);
     let body = _.pick(req.body, ['email', 'password']);
     let user = new User(body);
 
@@ -138,7 +139,7 @@ app.delete('/users/me', authenticate, (req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log('Server started on port 3000');
+    console.log('Server started on port:', PORT);
 });
 
 module.exports = { app };

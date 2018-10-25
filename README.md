@@ -31,7 +31,7 @@ Todo application using NodeJS. Includes features like
 
 ### Prerequisites
 
-* Install and run mongodb instance locally. 
+* Install and run mongodb instance locally.
 * Install Studio-3D to view MongoDb content.
 * Install POSTMAN to test APIs locally.
 
